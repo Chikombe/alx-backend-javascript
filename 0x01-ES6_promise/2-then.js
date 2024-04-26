@@ -8,8 +8,5 @@ export default function handleResponseFromAPI(promise) {
       console.log('Got a response from the API');
       return { status: 200, body: 'error' }; // Return a response for error case
     })
-    .finally(() => {
-      console.log('Got a response from the API');
-      return 'Got a response from the API'; // Include in the response
-    });
+    .finally(console.log('Got a response from the API'));
 }
