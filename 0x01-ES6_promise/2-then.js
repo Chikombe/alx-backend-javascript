@@ -10,6 +10,6 @@ export default function handleResponseFromAPI(promise) {
     })
     .finally(() => {
       console.log('Got a response from the API');
-       return 'Got a response from the API'; // Include in the response
+      return 'Got a response from the API'; // Include in the response
     });
 }
