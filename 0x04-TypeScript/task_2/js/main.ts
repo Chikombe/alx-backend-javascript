@@ -66,14 +66,25 @@ function executeWork(employee: Director | Teacher): string {
   }
 }
 
+// Define Subjects string literal type
+type Subjects = "Math" | "History";
+
+// Define teachClass function
+function teachClass(todayClass: Subjects): string {
+  if (todayClass === "Math") {
+    return "Teaching Math";
+  } else {
+    return "Teaching History";
+  }
+}
+
 // Test createEmployee function
 const lowSalaryEmployee = createEmployee(300); // Should return a Teacher instance
 const highSalaryEmployee = createEmployee(1000); // Should return a Director instance
 
-console.log(lowSalaryEmployee.workFromHome());
-console.log(lowSalaryEmployee.getCoffeeBreak());
-console.log(lowSalaryEmployee.workTeacherTasks());
+console.log(executeWork(lowSalaryEmployee)); // Output: Getting to work
+console.log(executeWork(highSalaryEmployee)); // Output: Getting to director tasks
 
-console.log(highSalaryEmployee.workFromHome());
-console.log(highSalaryEmployee.getCoffeeBreak());
-console.log(highSalaryEmployee.workDirectorTasks());
+// Test teachClass function
+console.log(teachClass("Math")); // Output: Teaching Math
+console.log(teachClass("History")); // Output: Teaching History
