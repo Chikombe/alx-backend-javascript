@@ -51,6 +51,21 @@ function createEmployee(salary: number | string): Director | Teacher {
   }
 }
 
+
+// Define isDirector function as type predicate
+function isDirector(employee: Director | Teacher): employee is Director {
+  return (employee as Director).workDirectorTasks !== undefined;
+}
+
+// Define executeWork function
+function executeWork(employee: Director | Teacher): string {
+  if (isDirector(employee)) {
+    return employee.workDirectorTasks();
+  } else {
+    return employee.workTeacherTasks();
+  }
+}
+
 // Test createEmployee function
 const lowSalaryEmployee = createEmployee(300); // Should return a Teacher instance
 const highSalaryEmployee = createEmployee(1000); // Should return a Director instance
